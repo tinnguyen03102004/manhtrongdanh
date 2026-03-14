@@ -23,7 +23,6 @@
     --font-body: 'Inter', 'Helvetica Neue', sans-serif;
 
     --header-height: 52px;
-    --disclaimer-height: 36px;
     --grid-gap: 0;
     --section-padding: 20px;
     --border-width: 1.5px;
@@ -203,84 +202,26 @@ textarea {
 }
 
 /* ══════════════════════════════════════════════════
-   DISCLAIMER BANNER
+   HEADER DISCLAIMER (inline, permanent)
    ══════════════════════════════════════════════════ */
-.disclaimer {
-    position: fixed;
-    top: var(--header-height);
-    left: 0;
-    right: 0;
-    z-index: 99;
-    height: var(--disclaimer-height);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    padding: 0 36px;
-    background: var(--color-primary);
-    color: var(--color-bg);
-    border-bottom: var(--border-width) solid var(--color-border);
-    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
-}
-
-.disclaimer--hidden {
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-}
-
-.disclaimer__content {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-}
-
-.disclaimer__icon {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    stroke: #d4a017;
-}
-
-.disclaimer__text {
+.header__disclaimer {
     font-size: 11px;
     font-weight: 300;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     line-height: 1.4;
-    text-align: center;
-    opacity: 0.9;
-}
-
-.disclaimer__close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 4px;
-    cursor: pointer;
-    color: var(--color-bg);
-    opacity: 0.5;
-    transition: opacity var(--transition-fast);
-    flex-shrink: 0;
-    background: none;
-    border: none;
-}
-
-.disclaimer__close:hover {
-    opacity: 1;
-}
-
-.disclaimer__close svg {
-    width: 14px;
-    height: 14px;
+    color: var(--color-muted);
+    text-align: right;
+    margin: 0;
+    flex: 1;
+    padding-left: 24px;
 }
 
 /* ══════════════════════════════════════════════════
    MAIN LAYOUT
    ══════════════════════════════════════════════════ */
 .main {
-    margin-top: calc(var(--header-height) + var(--disclaimer-height));
-    height: calc(100vh - var(--header-height) - var(--disclaimer-height));
+    margin-top: var(--header-height);
+    height: calc(100vh - var(--header-height));
     overflow: hidden;
 }
 
@@ -686,12 +627,9 @@ textarea {
    RESPONSIVE - TABLET PORTRAIT
    ══════════════════════════════════════════════════ */
 @media (max-width: 900px) {
-    .disclaimer {
-        padding: 0 16px;
-    }
-
-    .disclaimer__text {
-        font-size: 10px;
+    .header__disclaimer {
+        font-size: 9px;
+        padding-left: 12px;
     }
 
     .main {
@@ -805,36 +743,12 @@ textarea {
         display: flex;
     }
 
-    /* ── Disclaimer (FIX: single-line, centered) ── */
-    .disclaimer {
-        height: 36px;
-        padding: 2px 10px;
-        gap: 6px;
-        justify-content: center;
-        align-items: center;
-        top: 44px;
-    }
-
-    .disclaimer__content {
-        gap: 6px;
-        justify-content: center;
-        align-items: center;
-        flex: 1;
-        min-width: 0;
-        overflow: hidden;
-    }
-
-    .disclaimer__icon {
-        width: 12px;
-        height: 12px;
-        flex-shrink: 0;
-    }
-
-    .disclaimer__text {
-        font-size: 8px;
+    /* ── Disclaimer (compact in header) ── */
+    .header__disclaimer {
+        font-size: 7px;
         letter-spacing: 0;
         line-height: 1.3;
-        white-space: normal;
+        padding-left: 8px;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         line-clamp: 2;
@@ -842,26 +756,15 @@ textarea {
         overflow: hidden;
     }
 
-    .disclaimer__close {
-        padding: 2px;
-        flex-shrink: 0;
-    }
-
-    .disclaimer__close svg {
-        width: 12px;
-        height: 12px;
-    }
-
     :root {
         --header-height: 44px;
-        --disclaimer-height: 36px;
     }
 
     /* ── Main Layout → 2x2 grid ── */
     .main {
-        margin-top: calc(44px + var(--disclaimer-height));
-        height: calc(100vh - 44px - var(--disclaimer-height));
-        height: calc(100dvh - 44px - var(--disclaimer-height));
+        margin-top: 44px;
+        height: calc(100vh - 44px);
+        height: calc(100dvh - 44px);
         overflow: hidden;
     }
 

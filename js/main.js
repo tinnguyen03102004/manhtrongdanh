@@ -11,27 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initScrollReveal();
     initImageModal();
-    initContactForm();
     initSmoothScroll();
-    initDisclaimer();
+
 });
 
-/* ── Disclaimer Banner ── */
-function initDisclaimer() {
-    const disclaimer = document.getElementById('disclaimer');
-    const closeBtn = document.getElementById('disclaimer-close');
 
-    if (!disclaimer || !closeBtn) return;
-
-    closeBtn.addEventListener('click', () => {
-        disclaimer.classList.add('disclaimer--hidden');
-
-        // After animation, reclaim the space for main content
-        setTimeout(() => {
-            document.documentElement.style.setProperty('--disclaimer-height', '0px');
-        }, 400);
-    });
-}
 
 /* ── Column Entrance Animation ── */
 function initColumnEntrance() {
@@ -172,40 +156,6 @@ function initImageModal() {
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModal();
-    });
-}
-
-/* ── Contact Form ── */
-function initContactForm() {
-    const form = document.getElementById('contact-form');
-    const success = document.querySelector('.form-success');
-
-    if (!form) return;
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Get form data
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
-
-        // Basic validation
-        if (!data.name || !data.email || !data.message) {
-            shakeElement(form);
-            return;
-        }
-
-        // Simulate send (replace with real API call)
-        const submitBtn = form.querySelector('.form-submit');
-        submitBtn.textContent = 'ĐANG GỬI...';
-        submitBtn.disabled = true;
-
-        setTimeout(() => {
-            form.style.display = 'none';
-            if (success) {
-                success.classList.add('visible');
-            }
-        }, 1200);
     });
 }
 
