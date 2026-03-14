@@ -205,11 +205,13 @@ textarea {
    HEADER DISCLAIMER (inline, permanent)
    ══════════════════════════════════════════════════ */
 .header__disclaimer {
-    font-size: 11px;
-    font-weight: 300;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 500;
+    font-style: italic;
     letter-spacing: 0.3px;
     line-height: 1.4;
-    color: var(--color-muted);
+    color: var(--color-secondary);
     text-align: right;
     margin: 0;
     flex: 1;
@@ -628,7 +630,7 @@ textarea {
    ══════════════════════════════════════════════════ */
 @media (max-width: 900px) {
     .header__disclaimer {
-        font-size: 9px;
+        font-size: 12px;
         padding-left: 12px;
     }
 
@@ -745,7 +747,7 @@ textarea {
 
     /* ── Disclaimer (compact in header) ── */
     .header__disclaimer {
-        font-size: 7px;
+        font-size: 9px;
         letter-spacing: 0;
         line-height: 1.3;
         padding-left: 8px;
